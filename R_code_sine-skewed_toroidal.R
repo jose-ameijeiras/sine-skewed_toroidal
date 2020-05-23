@@ -83,21 +83,30 @@ dcosine=function(x,y,mu1,mu2,kappa1,kappa2,rho,tol=1e-10){
   
   indexes=1:100
   sCvec=0
-  
-  Cvec= besselI(kappa1,indexes)*besselI(kappa2,indexes)*besselI(rho,indexes)
-  sCvec=sCvec+sum( Cvec )
-  while(Cvec[length(Cvec)]>tol){
-    indexes=indexes+100
+  if(rho<0){
+    Cvec= besselI(kappa1,indexes)*besselI(kappa2,indexes)*besselI(abs(rho),indexes)*(-1)^(indexes)
+  }else{
     Cvec= besselI(kappa1,indexes)*besselI(kappa2,indexes)*besselI(rho,indexes)
+  }
+  sCvec=sCvec+sum( Cvec )
+  while(abs(Cvec[length(Cvec)])>tol){
+    indexes=indexes+100
+    if(rho<0){
+       Cvec= besselI(kappa1,indexes)*besselI(kappa2,indexes)*besselI(abs(rho),indexes)*(-1)^(indexes)
+    }else{
+       Cvec= besselI(kappa1,indexes)*besselI(kappa2,indexes)*besselI(rho,indexes)
+    }    
     sCvec=sCvec+sum( Cvec )
   }
   
   
   
-  C=4*pi^2*(besselI(kappa1,0)*besselI(kappa2,0)*besselI(rho,0)+2*sCvec)
+  C=4*pi^2*(besselI(kappa1,0)*besselI(kappa2,0)*besselI(abs(rho),0)+2*sCvec)
   val=exp(kappa1*cos(x-mu1)+kappa2*cos(y-mu2)+rho*cos(x-mu1-y+mu2))/C
   return(val)
 }
+
+
 
 
 ## Bivariate Wrapped Cauchy (Section 3.4)
