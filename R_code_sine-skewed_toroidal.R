@@ -2,12 +2,14 @@
 ######       Sine-skewed toroidal distributions and their application in protein bioinformatics       ######
 ######                         Jose Ameijeiras-Alonso   and   Christophe Ley                          ######
 ######                               KU Leuven               Ghent University                         ######
+######												      ######
+######      Biostatistics, to appear (available at https://doi.org/10.1093/biostatistics/kxaa039)     ######
 ######           arXiv preprint: 1910.13293 (available at https://arxiv.org/pdf/1910.13293)           ######
 ############################################################################################################
 
 ## Supplementary R code for the paper "Sine-skewed toroidal distributions and their application in protein bioinformatics" 
 ## To cite this material in publications use
-## Ameijeiras-Alonso, J., Ley, C. (2019). Sine-skewed toroidal distributions and their application in protein bioinformatics. arXiv preprint: 1910.13293.
+## Ameijeiras-Alonso, J., Ley, C. (2020). Sine-skewed toroidal distributions and their application in protein bioinformatics.  To appear in Biostatistics. DOI: 10.1093/biostatistics/kxaa039.
 
 # install.packages("Rsolnp")
 
